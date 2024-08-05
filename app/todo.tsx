@@ -46,7 +46,7 @@ export default function Todo() {
 
   const saveEditTodo = () => {
     if (editText === "") {
-      Alert.alert("Please enter a todo");
+      Alert.alert("Please enter your list to do");
       return;
     }
     const updatedTodos = todos.map((t) =>
