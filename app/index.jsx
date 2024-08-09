@@ -3,13 +3,10 @@ import React from "react";
 import { View, Text, Pressable } from "react-native";
 
 import { Container } from "@/components/Container";
-interface Link {
-  name: string;
-  link: string;
-}
+
 const Home = () => {
   const navigation = useNavigation();
-  const links: Link[] = [
+  const links = [
     {
       name: "Stopwatch",
       link: "stopwatch",
@@ -39,7 +36,7 @@ const Home = () => {
         </Text>
         {links.map((link, index) => (
           <Pressable
-            onPress={() => navigation.navigate(link.link as never)}
+            onPress={() => navigation.navigate(link.link)}
             key={index}
             className="
           mt-5 w-[300] items-center justify-center rounded-md bg-cyan-300 p-2

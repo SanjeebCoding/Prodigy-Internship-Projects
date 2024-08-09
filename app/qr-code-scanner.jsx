@@ -16,16 +16,16 @@ import { Container } from "@/components/Container";
 import { useNavigation } from "expo-router";
 
 export default function QrCode() {
-  const [facing, setFacing] = useState<CameraType>("back");
+  const [facing, setFacing] = useState("back");
   const [permission, requestPermission] = useCameraPermissions();
-  const [scannedData, setScannedData] = useState<string | null>(null);
-  const [scanned, setScanned] = useState<boolean>(false);
+  const [scannedData, setScannedData] = useState(null);
+  const [scanned, setScanned] = useState(false);
   const navigation = useNavigation();
 
   if (!permission) {
     return (
       <View>
-        <TouchableOpacity onPress={() => navigation.navigate("/" as never)}>
+        <TouchableOpacity onPress={() => navigation.navigate("/")}>
           <Text>Go to home</Text>
         </TouchableOpacity>
       </View>
@@ -48,7 +48,7 @@ export default function QrCode() {
     setFacing(facing === "back" ? "front" : "back");
   }
 
-  function handleBarCodeScanned({ data }: { data: string }) {
+  function handleBarCodeScanned({ data }) {
     setScanned(true);
     setScannedData(data);
   }

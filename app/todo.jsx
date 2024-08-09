@@ -11,16 +11,12 @@ import {
 import { Container } from "@/components/Container";
 import Entypo from "@expo/vector-icons/Entypo";
 
-interface Todo {
-  text: string;
-  id: number;
-}
 
 export default function Todo() {
   const [text, setText] = useState("");
-  const [todos, setTodos] = useState<Todo[]>([]);
+  const [todos, setTodos] = useState([]);
   const [editModalVisible, setEditModalVisible] = useState(false);
-  const [editTodoId, setEditTodoId] = useState<number | null>(null);
+  const [editTodoId, setEditTodoId] = useState(null);
   const [editText, setEditText] = useState("");
 
   const addTodo = () => {
@@ -34,7 +30,7 @@ export default function Todo() {
     setText("");
   };
 
-  const editTodo = (id: number) => {
+  const editTodo = (id) => {
     const todo = todos.find((t) => t.id === id);
     if (!todo) {
       return;

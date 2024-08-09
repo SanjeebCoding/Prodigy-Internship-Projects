@@ -13,5 +13,6 @@
     "**/*.tsx",
     ".expo/types/**/*.ts",
     "expo-env.d.ts"
-  ]
+, "app/index.jsx", "app/calculator.jsx", "app/+not-found.jsx", "app/_layout.jsx", "app/todojtsx", "app/tic-tac-toe.jsx", "app/stopwatch.jsx", "app/qr-code-scanner.jsx"  ]
 }
+      

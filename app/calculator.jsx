@@ -6,7 +6,7 @@ export default function Calculator() {
   const [input, setInput] = useState("");
   const [result, setResult] = useState("");
 
-  const handlePress = (value: string) => {
+  const handlePress = (value) => {
     if (value === "C") {
       setInput("");
       setResult("");
@@ -39,7 +39,7 @@ export default function Calculator() {
     }
   };
 
-  const operations = (number: string) => {
+  const operations = (number) => {
     if (
       number === "+" ||
       number === "-" ||

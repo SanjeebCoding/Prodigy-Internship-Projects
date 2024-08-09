@@ -5,15 +5,15 @@ import { Image, ScrollView, Text, View, Pressable } from "react-native";
 import { Container } from "@/components/Container";
 
 export default function StopWatch() {
-  const [laps, setLaps] = useState<string[]>([]);
+  const [laps, setLaps] = useState([]);
   const [play, setPlay] = useState(false);
-  const scrollViewRef = useRef<ScrollView>(null);
+  const scrollViewRef = useRef(null);
   const [clockData, setClockData] = useState({
     hour: "00",
     minute: "00",
     second: "00",
   });
-  const intervalRef = useRef<number | undefined | NodeJS.Timeout>(undefined);
+  const intervalRef = useRef(undefined);
   const onPlay = () => {
     if (play) {
       intervalRef.current = setInterval(() => {

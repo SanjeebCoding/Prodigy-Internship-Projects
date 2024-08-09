@@ -9,16 +9,15 @@ import {
 } from "react-native";
 import { Container } from "@/components/Container";
 
-type Player = "X" | "O" | null;
-type Board = Player[];
 
-const initialBoard: Board = Array(9).fill(null);
+
+const initialBoard= Array(9).fill(null);
 
 export default function TicTacToe() {
-  const [board, setBoard] = useState<Board>(initialBoard);
-  const [isXNext, setIsXNext] = useState<boolean | null>(null);
-  const [winner, setWinner] = useState<Player | "Draw">(null);
-  const [mode, setMode] = useState<"Player" | "Computer" | null>(null);
+  const [board, setBoard] = useState(initialBoard);
+  const [isXNext, setIsXNext] = useState(null);
+  const [winner, setWinner] = useState(null);
+  const [mode, setMode] = useState(null);
 
   useEffect(() => {
     if (mode === "Computer" && !isXNext && !winner) {
@@ -31,7 +30,7 @@ export default function TicTacToe() {
     setIsXNext(randomTurn);
   }, [mode]);
 
-  const handlePress = (index: number) => {
+  const handlePress = (index) => {
     if (board[index] || winner) return;
 
     const newBoard = board.slice();
@@ -41,10 +40,10 @@ export default function TicTacToe() {
     checkWinner(newBoard);
   };
 
-  const computerMove = (currentBoard: Board) => {
+  const computerMove = (currentBoard) => {
     const emptyIndices = currentBoard
       .map((value, index) => (value === null ? index : null))
-      .filter((val) => val !== null) as number[];
+      .filter((val) => val !== null);
     const randomIndex =
       emptyIndices[Math.floor(Math.random() * emptyIndices.length)];
     if (randomIndex !== undefined) {
@@ -56,7 +55,7 @@ export default function TicTacToe() {
     }
   };
 
-  const checkWinner = (currentBoard: Board) => {
+  const checkWinner = (currentBoard) => {
     const winningCombinations = [
       [0, 1, 2],
       [3, 4, 5],
