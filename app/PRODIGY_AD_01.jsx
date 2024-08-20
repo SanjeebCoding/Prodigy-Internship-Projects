@@ -19,7 +19,25 @@ export default function Calculator() {
         setResult("Error");
       }
     } else if (value === "()") {
-      setInput(input + "()");
+      setInput((prevInput) => {
+        const lastChar = prevInput.slice(-1);
+        const openBrackets = (prevInput.match(/\(/g) || []).length;
+        const closeBrackets = (prevInput.match(/\)/g) || []).length;
+        if (
+          openBrackets > closeBrackets &&
+          (lastChar === ")" || !isNaN(Number(lastChar)))
+        ) {
+          return prevInput + ")";
+        } else if (
+          lastChar === "(" ||
+          lastChar === "" ||
+          isNaN(Number(lastChar))
+        ) {
+          return prevInput + "(";
+        } else {
+          return prevInput + "*(";
+        }
+      });
     } else if (value === "+/-") {
       setInput((prevInput) => {
         if (prevInput.startsWith("-")) {
@@ -53,7 +71,7 @@ export default function Calculator() {
   };
 
   return (
-    <SafeAreaView className="flex-1 bg-[#151515]">
+    <SafeAreaView className="flex-1 bg-[#151515] py-5">
       <View className="flex-1 items-end justify-center gap-14 border-b-4 border-gray-500 p-5">
         <Text className="text-5xl text-white">{input}</Text>
         <Text className="text-3xl text-gray-400">{result}</Text>

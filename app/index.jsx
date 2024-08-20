@@ -8,24 +8,25 @@ const Home = () => {
   const navigation = useNavigation();
   const links = [
     {
-      name: "Stopwatch",
-      link: "stopwatch",
+      name: "Calculator",
+      link: "PRODIGY_AD_01", // 1st Task
+      
     },
     {
       name: "Todo",
-      link: "todo",
+      link: "PRODIGY_AD_02", // 2nd Task
     },
     {
-      name: "QR Code Scanner",
-      link: "qr-code-scanner",
-    },
-    {
-      name: "Calculator",
-      link: "calculator",
+      name: "Stopwatch",
+      link: "PRODIGY_AD_03", // 3rd Task
     },
     {
       name: "Tic Tac Toe",
-      link: "tic-tac-toe",
+      link: "PRODIGY_AD_04", // 4th Task
+    },
+    {
+      name: "QR Code Scanner",
+      link: "PRODIGY_AD_05", // 5th Task
     },
   ];
   return (

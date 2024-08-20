@@ -61,9 +61,10 @@ export default function Todo() {
           placeholder="Add a todo"
           value={text}
           onChangeText={setText}
-          className="full rounded-lg border border-gray-300 bg-white p-3 font-SpaceMono text-2xl"
+          className="full rounded-lg border border-gray-300 bg-white p-5 font-SpaceMono text-2xl "
           placeholderTextColor={"#000"}
           onSubmitEditing={addTodo}
+          style = {{paddingRight : 40}}
         />
         <Pressable className="absolute right-0 top-1 p-2" onPress={addTodo}>
           <Entypo name="plus" size={30} color="black" />
